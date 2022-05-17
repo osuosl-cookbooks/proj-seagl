@@ -38,4 +38,13 @@ describe 'proj-seagl::default' do
       nopasswd: true
     )
   end
+
+  it do
+    %w(
+      nano
+      emacs
+    ).each do |pkg|
+      is_expected.to install_package(pkg)
+    end
+  end
 end

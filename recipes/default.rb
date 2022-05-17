@@ -25,3 +25,10 @@ sudo 'seagl' do
   runas 'root'
   nopasswd true
 end
+
+%w(
+  nano
+  emacs
+).each do |pkg|
+  package pkg
+end

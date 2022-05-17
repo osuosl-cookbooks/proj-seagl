@@ -15,3 +15,12 @@ describe file '/etc/sudoers.d/seagl' do
   its('group') { should cmp 'root' }
   its(:content) { should match(/seagl ALL=\(root\) NOPASSWD:ALL/) }
 end
+
+%w(
+  nano
+  emacs
+).each do |pkg|
+  describe package pkg do
+    it { should be_installed }
+  end
+end

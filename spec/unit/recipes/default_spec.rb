@@ -19,14 +19,23 @@
 require_relative '../../spec_helper'
 
 describe 'proj-seagl::default' do
-  ALL_PLATFORMS.each do |p|
-    context "#{p[:platform]} #{p[:version]}" do
-      cached(:chef_run) do
-        ChefSpec::SoloRunner.new(p).converge(described_recipe)
-      end
-      it 'converges successfully' do
-        expect { chef_run }.to_not raise_error
-      end
+  cached(:subject) { chef_run }
+  platform 'centos', '8'
+
+  %w(
+    base::sudo
+  ).each do |recipe|
+    it do
+      is_expected.to include_recipe recipe
     end
+  end
+
+  it do
+    is_expected.to create_user('seagl')
+    is_expected.to create_sudo('seagl').with(
+      user: %w(seagl),
+      runas: 'root',
+      nopasswd: true
+    )
   end
 end

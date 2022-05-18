@@ -42,7 +42,7 @@ describe 'proj-seagl::default' do
   it do
     %w(
       nano
-      emacs
+      emacs-nox
     ).each do |pkg|
       is_expected.to install_package(pkg)
     end

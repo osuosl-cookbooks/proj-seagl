@@ -28,7 +28,7 @@ end
 
 %w(
   nano
-  emacs
+  emacs-nox
 ).each do |pkg|
   package pkg
 end

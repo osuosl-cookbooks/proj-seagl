@@ -18,7 +18,7 @@ end
 
 %w(
   nano
-  emacs
+  emacs-nox
 ).each do |pkg|
   describe package pkg do
     it { should be_installed }

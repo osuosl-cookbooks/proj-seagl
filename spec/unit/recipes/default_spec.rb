@@ -22,8 +22,10 @@ describe 'proj-seagl::default' do
   cached(:subject) { chef_run }
   platform 'centos', '8'
 
+  include_context 'stubs'
+
   %w(
-    base::sudo
+    sudo::default
   ).each do |recipe|
     it do
       is_expected.to include_recipe recipe
@@ -31,7 +33,6 @@ describe 'proj-seagl::default' do
   end
 
   it do
-    is_expected.to create_user('seagl')
     is_expected.to create_sudo('seagl').with(
       user: %w(seagl),
       runas: 'root',

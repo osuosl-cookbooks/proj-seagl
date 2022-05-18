@@ -16,7 +16,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-user 'seagl'
+users = search('users', '*:*')
+
+users_manage 'seagl' do
+  users users
+end
 
 include_recipe 'base::sudo'
 

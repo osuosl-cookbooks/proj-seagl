@@ -19,3 +19,9 @@ ALL_PLATFORMS = [
 RSpec.configure do |config|
   config.log_level = :warn
 end
+
+shared_context 'stubs' do
+  before do
+    stub_search('users', '*:*').and_return([])
+  end
+end

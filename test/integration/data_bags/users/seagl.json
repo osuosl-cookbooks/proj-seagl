@@ -1,0 +1,11 @@
+{
+  "id": "seagl",
+  "username": "seagl",
+  "home": "/home/seagl",
+  "shell": "/bin/bash",
+  "ssh_keygen": "false",
+  "password": "*",
+  "groups": [
+    "seagl"
+  ]
+}

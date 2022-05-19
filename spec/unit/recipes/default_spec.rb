@@ -33,6 +33,7 @@ describe 'proj-seagl::default' do
   end
 
   it do
+    is_expected.to create_users_manage('seagl')
     is_expected.to create_sudo('seagl').with(
       user: %w(seagl),
       runas: 'root',

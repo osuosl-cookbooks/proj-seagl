@@ -22,7 +22,7 @@ users_manage 'seagl' do
   users users
 end
 
-include_recipe 'base::sudo'
+include_recipe 'sudo::default'
 
 sudo 'seagl' do
   user 'seagl'

@@ -9,6 +9,6 @@ chef_version      '>= 16.0'
 version           '0.1.0'
 
 depends           'base'
-depends           'users', '~> 8.0'
+depends           'users'
 
 supports          'centos_stream', '~> 8.0'

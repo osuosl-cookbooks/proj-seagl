@@ -8,12 +8,9 @@ describe user 'seagl' do
   its('home') { should cmp '/home/seagl' }
 end
 
-describe file '/etc/sudoers.d/seagl' do
-  it { should be_file }
-  its('mode') { should cmp 0440 }
-  its('owner') { should cmp 'root' }
-  its('group') { should cmp 'root' }
-  its(:content) { should match(/seagl ALL=\(root\) NOPASSWD:ALL/) }
+describe command('sudo -u seagl sudo -l') do
+  its('exit_status') { should eq 0 }
+  its('stdout') { should match /\(root\) NOPASSWD: ALL/ }
 end
 
 %w(

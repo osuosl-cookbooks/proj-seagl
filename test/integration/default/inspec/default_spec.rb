@@ -8,7 +8,7 @@ describe user 'seagl' do
   its('home') { should cmp '/home/seagl' }
 end
 
-describe command('sudo -u seagl sudo -l') do
+describe command('sudo -U seagl -l') do
   its('exit_status') { should eq 0 }
   its('stdout') { should match /\(root\) NOPASSWD: ALL/ }
 end

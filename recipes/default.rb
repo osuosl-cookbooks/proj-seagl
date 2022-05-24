@@ -15,3 +15,24 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+users = search('users', '*:*')
+
+users_manage 'seagl' do
+  users users
+end
+
+include_recipe 'sudo::default'
+
+sudo 'seagl' do
+  user 'seagl'
+  runas 'root'
+  nopasswd true
+end
+
+%w(
+  nano
+  emacs-nox
+).each do |pkg|
+  package pkg
+end

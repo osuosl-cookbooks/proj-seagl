@@ -8,7 +8,7 @@ source_url        'https://github.com/osuosl-cookbooks/proj-seagl'
 chef_version      '>= 16.0'
 version           '1.0.0'
 
-depends           'base'
 depends           'users'
+depends           'sudo'
 
 supports          'centos_stream', '~> 8.0'

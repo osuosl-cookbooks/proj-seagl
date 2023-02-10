@@ -9,7 +9,13 @@ provisioner:
   multiple_converge: 2
   deprecations_as_errors: true
 
+driver:
+  flavor_ref: m1.medium
+
 suites:
   - name: default
     run_list:
       - recipe[proj-seagl::default]
+  - name: nextcloud
+    run_list:
+      - recipe[proj-seagl::nextcloud]

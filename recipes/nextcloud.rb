@@ -16,11 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-node.override['percona']['version'] = '5.7'
-node.default['percona']['server']['root_password'] = 'nextcloud'
-node.default['percona']['backup']['password'] = 'nextcloud'
+dbcreds = data_bag_item('proj-seagl', 'dbcredentials')
+servercreds = data_bag_item('proj-seagl', 'servercredentials')
+nextcloudcreds = data_bag_item('proj-seagl', 'nextcloudcredentials')
 
-dbcreds = data_bag_item('proj-seagl', 'credentials')
+node.override['percona']['version'] = '5.7'
+node.default['percona']['server']['root_password'] = servercreds['root_password']
+node.default['percona']['backup']['password'] = servercreds['backup_password']
 
 include_recipe 'osl-mysql::server'
 
@@ -44,12 +46,12 @@ end
 
 osl_nextcloud 'test' do
   version '23'
-  server_name 'nextcloud.example.com'
-  database_host 'localhost'
+  server_name 'cloud.seagl.org'
   database_name 'nextcloud'
   database_user 'nextcloud'
-  database_password 'nextcloud'
+  database_host 'localhost'
+  database_password servercreds['root_password']
   nextcloud_admin_user 'admin'
   nextcloud_admin_password 'unguessable'
-  server_aliases %w(localhost nextcloud.example.com)
+  server_aliases %w(localhost cloud.seagl.org)
 end

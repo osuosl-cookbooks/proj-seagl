@@ -47,11 +47,12 @@ end
 osl_nextcloud 'test' do
   version '23'
   server_name 'cloud.seagl.org'
-  database_name 'nextcloud'
-  database_user 'nextcloud'
-  database_host 'localhost'
-  database_password servercreds['root_password']
-  nextcloud_admin_user 'admin'
-  nextcloud_admin_password 'unguessable'
+  database_name dbcreds['db_dbname']
+  database_user dbcreds['db_user']
+  database_host dbcreds['db_host']
+  database_password dbcreds['db_passw']
+  nextcloud_admin_user nextcloudcreds['admin_user']
+  nextcloud_admin_password nextcloudcreds['admin_pass']
   server_aliases %w(localhost cloud.seagl.org)
+  sensitive false
 end

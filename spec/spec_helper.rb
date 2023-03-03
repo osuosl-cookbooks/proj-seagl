@@ -23,5 +23,14 @@ end
 shared_context 'stubs' do
   before do
     stub_search('users', '*:*').and_return([])
+    stub_data_bag_item('nextcloud', 'credentials').and_return(
+      'id' => 'credentials',
+      'db_host' => 'localhost',
+      'db_port' => '3306',
+      'db_user' => 'nextcloud',
+      'db_passw' => 'nextcloud',
+      'db_dbname' => 'nextcloud'
+    )
+    stub_command("mysqladmin --user=root --password='' version").and_return(true)
   end
 end

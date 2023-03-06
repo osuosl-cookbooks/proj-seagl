@@ -44,7 +44,7 @@ service 'apache2' do
   action :nothing
 end
 
-osl_nextcloud 'test' do
+osl_nextcloud 'seagl_cloud' do
   version '23'
   server_name 'cloud.seagl.org'
   database_name dbcreds['db_dbname']

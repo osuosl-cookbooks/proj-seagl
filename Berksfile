@@ -14,4 +14,6 @@ cookbook 'osl-resources', git: 'git@github.com:osuosl-cookbooks/osl-resources', 
 cookbook 'osl-rsync', git: 'git@github.com:osuosl-cookbooks/osl-rsync.git'
 cookbook 'osl-selinux', git: 'git@github.com:osuosl-cookbooks/osl-selinux.git'
 
+cookbook 'nextcloud-test', path: 'test/cookbooks/nextcloud-test'
+
 metadata

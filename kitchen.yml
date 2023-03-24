@@ -19,3 +19,6 @@ suites:
   - name: nextcloud
     run_list:
       - recipe[proj-seagl::nextcloud]
+  - name: nextcloud-test
+    run_list:
+      - recipe[nextcloud-test::default]

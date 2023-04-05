@@ -17,7 +17,7 @@
 # limitations under the License.
 
 dbcreds = data_bag_item('proj-seagl', 'dbcredentials')
-servercreds = data_bag_item('proj-seagl', 'servercredentials')
+# servercreds = data_bag_item('proj-seagl', 'servercredentials')
 nextcloudcreds = data_bag_item('proj-seagl', 'nextcloudcredentials')
 
 # service 'apache2' do

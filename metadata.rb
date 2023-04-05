@@ -10,7 +10,6 @@ version           '1.1.0'
 
 depends           'users'
 depends           'sudo'
-depends           'osl-nextcloud'
 depends           'osl-mysql'
 depends           'osl-nextcloud'
 

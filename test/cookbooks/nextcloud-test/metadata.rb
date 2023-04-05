@@ -7,3 +7,4 @@ version           '0.1.0'
 
 depends 'osl-nextcloud'
 depends 'osl-mysql'
+depends 'osl-apache'

@@ -20,11 +20,11 @@ dbcreds = data_bag_item('proj-seagl', 'dbcredentials')
 # servercreds = data_bag_item('proj-seagl', 'servercredentials')
 nextcloudcreds = data_bag_item('proj-seagl', 'nextcloudcredentials')
 
-# service 'apache2' do
-#   service_name lazy { apache_platform_service_name }
-#   supports restart: true, status: true, reload: true, enable: true
-#   action :nothing
-# end
+service 'apache2' do
+  service_name lazy { apache_platform_service_name }
+  supports restart: true, status: true, reload: true, enable: true
+  action :nothing
+end
 
 osl_nextcloud 'seagl_cloud' do
   version '23'

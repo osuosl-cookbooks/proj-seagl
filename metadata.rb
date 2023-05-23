@@ -8,9 +8,8 @@ source_url        'https://github.com/osuosl-cookbooks/proj-seagl'
 chef_version      '>= 16.0'
 version           '1.1.0'
 
-depends           'users'
-depends           'sudo'
-depends           'osl-mysql'
 depends           'osl-nextcloud'
+depends           'sudo'
+depends           'users'
 
-supports          'centos_stream', '~> 8.0'
+supports          'almalinux', '~> 8.0'

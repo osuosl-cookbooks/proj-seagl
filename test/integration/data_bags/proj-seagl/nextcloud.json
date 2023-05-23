@@ -1,0 +1,10 @@
+{
+  "id": "nextcloud",
+  "db": {
+    "host": "127.0.0.1",
+    "user": "seagl_nextcloud",
+    "passwd": "seagl_password",
+    "name": "seagl_nextcloud"
+  },
+  "admin_passwd": "unguessable"
+}

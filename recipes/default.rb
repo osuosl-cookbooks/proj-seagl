@@ -30,9 +30,4 @@ sudo 'seagl' do
   nopasswd true
 end
 
-%w(
-  nano
-  emacs-nox
-).each do |pkg|
-  package pkg
-end
+package %w(emacs-nox nano)

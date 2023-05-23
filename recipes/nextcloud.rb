@@ -16,25 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-dbcreds = data_bag_item('proj-seagl', 'dbcredentials')
-# servercreds = data_bag_item('proj-seagl', 'servercredentials')
-nextcloudcreds = data_bag_item('proj-seagl', 'nextcloudcredentials')
+secrets = data_bag_item('proj-seagl', 'nextcloud')
 
-service 'apache2' do
-  service_name lazy { apache_platform_service_name }
-  supports restart: true, status: true, reload: true, enable: true
-  action :nothing
-end
-
-osl_nextcloud 'seagl_cloud' do
-  version '23'
-  server_name 'cloud.seagl.org'
-  database_name dbcreds['db_dbname']  # Change this
-  database_user dbcreds['db_user']    # Change this
-  database_host dbcreds['db_host']    # Change this
-  database_password dbcreds['db_passw'] # Change this
-  nextcloud_admin_user nextcloudcreds['admin_user']
-  nextcloud_admin_password nextcloudcreds['admin_pass']
-  server_aliases %w(localhost cloud.seagl.org)
-  sensitive false   # Change this
+osl_nextcloud 'cloud.seagl.org' do
+  database_name secrets['db']['name']
+  database_user secrets['db']['user']
+  database_host secrets['db']['host']
+  database_password secrets['db']['passwd']
+  nextcloud_admin_password secrets['admin_passwd']
+  mail_domain 'cloud.seagl.org'
 end

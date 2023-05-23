@@ -17,25 +17,33 @@
 # limitations under the License.
 
 require_relative '../../spec_helper'
-require 'spec_helper'
 
 describe 'proj-seagl::nextcloud' do
   cached(:subject) { chef_run }
-  platform 'centos', '8'
+  platform 'almalinux', '8'
 
-  include_context 'stubs'
+  include_context 'common_stubs'
 
-  %w(
-    osl-mysql::server
-  ).each do |recipe|
-    it do
-      is_expected.to include_recipe recipe
-    end
+  before do
+    stub_data_bag_item('proj-seagl', 'nextcloud').and_return(
+       db: {
+         host: '127.0.0.1',
+         user: 'seagl_nextcloud',
+         passwd: 'seagl_password',
+         name: 'seagl_nextcloud',
+       },
+       "admin_passwd": 'unguessable'
+     )
   end
 
   it do
-    is_expected.to create_percona_mysql_database('db_nextcloud')
-    is_expected.to create_percona_mysql_user('db_nextcloud_user')
-    is_expected.to create_osl_nextcloud('seagl_cloud')
+    is_expected.to create_osl_nextcloud('cloud.seagl.org').with(
+      database_name: 'seagl_nextcloud',
+      database_user: 'seagl_nextcloud',
+      database_host: '127.0.0.1',
+      database_password: 'seagl_password',
+      nextcloud_admin_password: 'unguessable',
+      mail_domain: 'cloud.seagl.org'
+    )
   end
 end

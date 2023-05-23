@@ -20,16 +20,12 @@ require_relative '../../spec_helper'
 
 describe 'proj-seagl::default' do
   cached(:subject) { chef_run }
-  platform 'centos', '8'
+  platform 'almalinux', '8'
 
-  include_context 'stubs'
+  include_context 'common_stubs'
 
-  %w(
-    sudo::default
-  ).each do |recipe|
-    it do
-      is_expected.to include_recipe recipe
-    end
+  it do
+    is_expected.to include_recipe 'sudo::default'
   end
 
   it do
@@ -42,11 +38,6 @@ describe 'proj-seagl::default' do
   end
 
   it do
-    %w(
-      nano
-      emacs-nox
-    ).each do |pkg|
-      is_expected.to install_package(pkg)
-    end
+    is_expected.to install_package(%w(emacs-nox nano))
   end
 end

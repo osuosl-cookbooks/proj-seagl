@@ -1,8 +1,8 @@
 #
 # Cookbook:: proj-seagl
-# Spec:: default
+# Spec:: nextcloud
 #
-# Copyright:: 2022-2023, Oregon State University
+# Copyright:: 2023, Oregon State University
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,26 +18,32 @@
 
 require_relative '../../spec_helper'
 
-describe 'proj-seagl::default' do
+describe 'proj-seagl::nextcloud' do
   cached(:subject) { chef_run }
   platform 'almalinux', '8'
 
   include_context 'common_stubs'
 
-  it do
-    is_expected.to include_recipe 'sudo::default'
+  before do
+    stub_data_bag_item('proj-seagl', 'nextcloud').and_return(
+       db: {
+         host: '127.0.0.1',
+         user: 'seagl_nextcloud',
+         passwd: 'seagl_password',
+         name: 'seagl_nextcloud',
+       },
+       "admin_passwd": 'unguessable'
+     )
   end
 
   it do
-    is_expected.to create_users_manage('seagl')
-    is_expected.to create_sudo('seagl').with(
-      user: %w(seagl),
-      runas: 'root',
-      nopasswd: true
+    is_expected.to create_osl_nextcloud('cloud.seagl.org').with(
+      database_name: 'seagl_nextcloud',
+      database_user: 'seagl_nextcloud',
+      database_host: '127.0.0.1',
+      database_password: 'seagl_password',
+      nextcloud_admin_password: 'unguessable',
+      mail_domain: 'cloud.seagl.org'
     )
-  end
-
-  it do
-    is_expected.to install_package(%w(emacs-nox nano))
   end
 end

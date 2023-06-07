@@ -1,5 +1,5 @@
 #
-# Cookbook:: proj-seagl
+# Cookbook:: osl-nextcloud
 # Recipe:: default
 #
 # Copyright:: 2022-2023, Oregon State University
@@ -16,18 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-users = search('users', '*:*')
+secrets = data_bag_item('proj-seagl', 'nextcloud')
 
-users_manage 'seagl' do
-  users users
+osl_nextcloud 'cloud.seagl.org' do
+  database_name secrets['db']['name']
+  database_user secrets['db']['user']
+  database_host secrets['db']['host']
+  database_password secrets['db']['passwd']
+  nextcloud_admin_password secrets['admin_passwd']
+  mail_domain 'cloud.seagl.org'
 end
-
-include_recipe 'sudo::default'
-
-sudo 'seagl' do
-  user 'seagl'
-  runas 'root'
-  nopasswd true
-end
-
-package %w(emacs-nox nano)

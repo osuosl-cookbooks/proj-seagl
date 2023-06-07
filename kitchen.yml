@@ -6,10 +6,17 @@ provisioner:
   name: chef_infra
   data_bags_path: test/integration/data_bags
   enforce_idempotency: true
-  multiple_converge: 2
+  multiple_converge: 3
   deprecations_as_errors: true
+
+driver:
+  flavor_ref: m1.medium
 
 suites:
   - name: default
     run_list:
       - recipe[proj-seagl::default]
+  - name: nextcloud
+    run_list:
+      - recipe[seagl-test::nextcloud]
+      - recipe[proj-seagl::nextcloud]

@@ -1,0 +1,4 @@
+cookbook=proj-seagl
+version=1.1.0
+envs=~
+pr_link=https://github.com/osuosl-cookbooks/proj-seagl/pull/7

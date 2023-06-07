@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the proj-seagl cookbook.
 
+1.2.0 (2023-06-07)
+------------------
+- Initial Nextcloud recipe
+
 1.1.0 (2022-08-26)
 ------------------
 - Remove direct dependency on base cookbook

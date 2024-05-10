@@ -19,15 +19,12 @@ provisioner:
 
 platforms:
   - name: almalinux-8
-  - name: centos-7
 
 suites:
   - name: default
     run_list:
       - recipe[proj-seagl::default]
   - name: nextcloud
-    excludes:
-      - centos-7
     run_list:
       - recipe[seagl-test::nextcloud]
       - recipe[proj-seagl::nextcloud]

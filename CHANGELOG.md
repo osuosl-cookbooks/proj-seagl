@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the proj-seagl cookbook.
 
+1.2.1 (2024-05-24)
+------------------
+- Test Kitchen Config Refactor
+
 1.2.0 (2023-06-07)
 ------------------
 - Initial Nextcloud recipe

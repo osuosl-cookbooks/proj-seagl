@@ -1,7 +1,7 @@
 name              'proj-seagl'
 maintainer        'Oregon State University'
 maintainer_email  'chef@osuosl.org'
-license           'All Rights Reserved'
+license           'Apache-2.0'
 description       'Installs/Configures proj-seagl'
 issues_url        'https://github.com/osuosl-cookbooks/proj-seagl/issues'
 source_url        'https://github.com/osuosl-cookbooks/proj-seagl'

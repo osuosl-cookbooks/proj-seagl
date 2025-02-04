@@ -1,5 +1,5 @@
+## specifies where to look for cookbooks not specified here
 source 'https://supermarket.chef.io'
-
 solver :ruby, :required
 
 cookbook 'osl-apache', git: 'git@github.com:osuosl-cookbooks/osl-apache.git'
@@ -14,6 +14,8 @@ cookbook 'osl-resources', git: 'git@github.com:osuosl-cookbooks/osl-resources', 
 cookbook 'osl-rsync', git: 'git@github.com:osuosl-cookbooks/osl-rsync.git'
 cookbook 'osl-selinux', git: 'git@github.com:osuosl-cookbooks/osl-selinux.git'
 
+# test dependencies
 cookbook 'seagl-test', path: 'test/cookbooks/seagl-test'
 
+## look in `metadata.rb` for further dependencies
 metadata

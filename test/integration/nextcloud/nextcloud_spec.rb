@@ -13,7 +13,7 @@ control 'nextcloud' do
   describe command('sudo -u apache php /var/www/cloud.seagl.org/nextcloud/occ status') do
     its('exit_status') { should eq 0 }
     its('stdout') { should match /installed: true/ }
-    its('stdout') { should match /versionstring: 28/ }
+    its('stdout') { should match /versionstring: 30/ }
   end
 
   describe command('sudo -u apache php /var/www/cloud.seagl.org/nextcloud/occ check') do

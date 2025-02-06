@@ -19,31 +19,36 @@
 require_relative '../../spec_helper'
 
 describe 'proj-seagl::nextcloud' do
-  cached(:subject) { chef_run }
-  platform 'almalinux', '8'
+  ALL_PLATFORMS.each do |p|
+    context "#{p[:platform]} #{p[:version]} #{p[:log_level]}" do
+      cached(:chef_run) do
+        ChefSpec::SoloRunner.new(p).converge(described_recipe)
+      end
 
-  include_context 'common_stubs'
+      include_context 'common_stubs'
 
-  before do
-    stub_data_bag_item('proj-seagl', 'nextcloud').and_return(
-       db: {
-         host: '127.0.0.1',
-         user: 'seagl_nextcloud',
-         passwd: 'seagl_password',
-         name: 'seagl_nextcloud',
-       },
-       "admin_passwd": 'unguessable'
-     )
-  end
+      before do
+        stub_data_bag_item('proj-seagl', 'nextcloud').and_return(
+          db: {
+            host: '127.0.0.1',
+            user: 'seagl_nextcloud',
+            passwd: 'seagl_password',
+            name: 'seagl_nextcloud',
+          },
+          "admin_passwd": 'unguessable'
+        )
+      end
 
-  it do
-    is_expected.to create_osl_nextcloud('cloud.seagl.org').with(
-      database_name: 'seagl_nextcloud',
-      database_user: 'seagl_nextcloud',
-      database_host: '127.0.0.1',
-      database_password: 'seagl_password',
-      nextcloud_admin_password: 'unguessable',
-      mail_domain: 'cloud.seagl.org'
-    )
+      it do
+        is_expected.to create_osl_nextcloud('cloud.seagl.org').with(
+          database_name: 'seagl_nextcloud',
+          database_user: 'seagl_nextcloud',
+          database_host: '127.0.0.1',
+          database_password: 'seagl_password',
+          nextcloud_admin_password: 'unguessable',
+          mail_domain: 'cloud.seagl.org'
+        )
+      end
+    end
   end
 end

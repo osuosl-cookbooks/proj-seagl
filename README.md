@@ -11,6 +11,7 @@ Installs and configures proj-seagl
 ### Platforms
 
 - Almalinux 8.0
+- Almalinux 9.0
 
 ## Attributes
 

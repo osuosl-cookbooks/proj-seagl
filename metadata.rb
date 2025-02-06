@@ -9,7 +9,6 @@ chef_version      '>= 16.0'
 version           '1.2.1'
 
 depends           'osl-nextcloud'
-depends           'sudo'
 depends           'users'
 
 supports          'almalinux', '~> 8.0'

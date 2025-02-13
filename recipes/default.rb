@@ -2,7 +2,7 @@
 # Cookbook:: proj-seagl
 # Recipe:: default
 #
-# Copyright:: 2022-2024, Oregon State University
+# Copyright:: 2022-2025, Oregon State University
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,8 +21,6 @@ users = search('users', '*:*')
 users_manage 'seagl' do
   users users
 end
-
-include_recipe 'sudo::default'
 
 sudo 'seagl' do
   user 'seagl'

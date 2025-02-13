@@ -1,20 +1,23 @@
 # proj-seagl
 
-TODO: Enter the cookbook description here.
+Installs and configures proj-seagl
 
 ## Requirements
 
+### Packages
+
+- `osl-nextcloud` - proj-seagl needs osl-nextcloud for its osl_nextcloud resource
+
 ### Platforms
 
-- CentOS 7+
-
-### Cookbooks
+- Almalinux 8.0
+- Almalinux 9.0
 
 ## Attributes
 
 ## Resources
 
-## Recipes
+## Usage
 
 ## Contributing
 

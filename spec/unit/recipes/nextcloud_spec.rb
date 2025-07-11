@@ -35,7 +35,12 @@ describe 'proj-seagl::nextcloud' do
             passwd: 'seagl_password',
             name: 'seagl_nextcloud',
           },
-          "admin_passwd": 'unguessable'
+          "admin_passwd": 'unguessable',
+          "extra_config": {
+            'sentry.dsn' => 'sentry_dsn_fake',
+            'sentry.public-dsn' => 'sentry_public_dsn_fake',
+            'sentry.csp-report-url' => 'sentry_csp_report_url_fake',
+          }
         )
       end
 

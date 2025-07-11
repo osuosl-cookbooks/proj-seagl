@@ -25,4 +25,5 @@ osl_nextcloud 'cloud.seagl.org' do
   database_password secrets['db']['passwd']
   nextcloud_admin_password secrets['admin_passwd']
   mail_domain 'cloud.seagl.org'
+  extra_config secrets['extra_config']
 end

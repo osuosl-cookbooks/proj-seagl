@@ -13,7 +13,7 @@ control 'nextcloud' do
   describe command('sudo -u apache php /var/www/cloud.seagl.org/nextcloud/occ status') do
     its('exit_status') { should eq 0 }
     its('stdout') { should match /installed: true/ }
-    its('stdout') { should match /versionstring: 30/ }
+    its('stdout') { should match /versionstring: 31/ }
   end
 
   describe command('sudo -u apache php /var/www/cloud.seagl.org/nextcloud/occ check') do
@@ -29,5 +29,20 @@ control 'nextcloud' do
   describe command('sudo -u apache php /var/www/cloud.seagl.org/nextcloud/occ config:system:get mail_domain') do
     its('exit_status') { should eq 0 }
     its('stdout') { should match /^cloud.seagl.org$/ }
+  end
+
+  describe command('sudo -u apache php /var/www/cloud.seagl.org/nextcloud/occ config:system:get sentry.dsn') do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match /^sentry_dsn_fake$/ }
+  end
+
+  describe command('sudo -u apache php /var/www/cloud.seagl.org/nextcloud/occ config:system:get sentry.public-dsn') do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match /^sentry_public_dsn_fake$/ }
+  end
+
+  describe command('sudo -u apache php /var/www/cloud.seagl.org/nextcloud/occ config:system:get sentry.csp-report-url') do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match /^sentry_csp_report_url_fake$/ }
   end
 end

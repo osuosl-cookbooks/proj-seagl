@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the proj-seagl cookbook.
 
+1.2.3 (2025-07-11)
+------------------
+- Add sentry options to nextcloud
+
 1.2.2 (2025-02-13)
 ------------------
 - Add almalinux 9 support

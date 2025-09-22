@@ -13,9 +13,16 @@ ALMA_9 = {
   log_level: :warn,
 }.freeze
 
+ALMA_10 = {
+  platform: 'almalinux',
+  version: '10',
+  log_level: :warn,
+}.freeze
+
 ALL_PLATFORMS = [
   ALMA_8,
   ALMA_9,
+  ALMA_10,
 ].freeze
 
 RSpec.configure do |config|

@@ -10,10 +10,10 @@ control 'default' do
   end
 
   packages = if os.name == 'almalinux' && os.release.to_i <= 9
-    %w(emacs-nox nano)
-  else
-    %w(emacs-nw nano)
-  end
+               %w(emacs-nox nano)
+             else
+               %w(emacs-nw nano)
+             end
 
   packages.each do |pkg|
     describe package pkg do

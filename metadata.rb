@@ -6,7 +6,7 @@ description       'Installs/Configures proj-seagl'
 issues_url        'https://github.com/osuosl-cookbooks/proj-seagl/issues'
 source_url        'https://github.com/osuosl-cookbooks/proj-seagl'
 chef_version      '>= 16.0'
-version           '1.2.3'
+version           '1.2.4'
 
 depends           'osl-nextcloud', '>= 2.7.0'
 depends           'users'

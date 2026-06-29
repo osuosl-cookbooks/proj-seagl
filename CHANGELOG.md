@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the proj-seagl cookbook.
 
+1.2.5 (2026-06-29)
+------------------
+- cinc: updated kitchen and dokken files
+
 1.2.4 (2025-09-24)
 ------------------
 - Almalinux 10 Integration

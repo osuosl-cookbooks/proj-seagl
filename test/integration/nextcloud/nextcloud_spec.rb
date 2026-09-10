@@ -7,13 +7,13 @@ control 'nextcloud' do
   describe http('http://localhost', headers: { 'host' => 'cloud.seagl.org' }) do
     its('status') { should eq 302 }
     its('headers.Content-Type') { should match 'text/html' }
-    its('headers.Location') { should match 'http://cloud.seagl.org/index.php/login' }
+    its('headers.Location') { should match 'https://cloud.seagl.org/login' }
   end
 
   describe command('sudo -u apache php /var/www/cloud.seagl.org/nextcloud/occ status') do
     its('exit_status') { should eq 0 }
     its('stdout') { should match /installed: true/ }
-    its('stdout') { should match /versionstring: 31/ }
+    its('stdout') { should match /versionstring: 33/ }
   end
 
   describe command('sudo -u apache php /var/www/cloud.seagl.org/nextcloud/occ check') do

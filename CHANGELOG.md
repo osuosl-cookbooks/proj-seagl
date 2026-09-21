@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the proj-seagl cookbook.
 
+1.2.6 (2026-09-21)
+------------------
+- chef 19 update
+
 1.2.5 (2026-06-29)
 ------------------
 - cinc: updated kitchen and dokken files
